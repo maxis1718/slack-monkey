@@ -1,10 +1,23 @@
 var request = require('request');
+var hot = require('./hot.json');
+
+/*
+var pttBeautyUrl = 'https://www.ptt.cc/bbs/Beauty/index.html';
+
+request.get(pttBeautyUrl, function (err, resp, body) {
+    console.log(body);
+});
+*/
 
 module.exports = function (req, res, next) {
     var userName = req.body.user_name;
-    
+    // user's input text
+    // req.body.text
+    var idx = Math.floor(Math.random()*(hot.length-1));
+    var girl = hot[idx];
+    var msg = girl.title + '\n' + girl.imgur;
     var botPayload = {
-        text: 'http://i.imgur.com/kzwnBpV.jpg'
+        text: msg
     };
  
     // avoid infinite loop
