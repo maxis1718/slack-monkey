@@ -17,3 +17,15 @@ node app
 ## Slack
 
 [Outgoing WebHooks](https://searchfetd.slack.com/services/6526464182?updated=1)
+
+## Usage
+
+```
++[search text]
+#[search tag], (正妹,神人,帥哥,美女,正咩,表特,名人)
+
+e.g., [trigger term] +捷運 #正妹
+```
+
+
+
