@@ -5,6 +5,7 @@
 # parse list and get posts
 # request posts and save to mongo
 # explore 上頁
+# db.beauty.lists.createIndex({ push: -1 })
 
 from pymongo import MongoClient
 from lxml import html
@@ -36,8 +37,16 @@ def add_post_id(post):
 
 def save_post_to_mongo(co, post):
     query = { 'post_id': post['post_id'] }
-    replacement = post
-    result = co.replace_one(query, replacement, upsert=True)
+    mdoc = co.find_one(query)
+    if mdoc is None:
+        # not existed, insert
+        co.insert_one(post)
+    else:
+        # merge current one
+        replacement = mdoc.copy()
+        replacement.update(post)
+        # update record
+        co.replace_one(query, replacement)
     return result
 
 def get_current_list_id(entry, prev_url):
@@ -57,8 +66,8 @@ def get_full_entry_url(entry, list_id):
 
 if __name__ == '__main__':
 
-    entry = 'https://www.ptt.cc/bbs/Beauty/index1485.html'
-    total = 50
+    entry = 'https://www.ptt.cc/bbs/Beauty/index1650.html'
+    total = 1
 
     processed = 0
     while processed < total:
@@ -88,7 +97,7 @@ if __name__ == '__main__':
             print '  > save', post['title'], '(', i+1, '/', len(post_lists), ')'
             save_post_to_mongo(co_list, post)
 
-        wait = random.randrange(1,6)
+        wait = random.randrange(1,5)
         print '> wait for', wait, 'secs'
         time.sleep(wait)
 
