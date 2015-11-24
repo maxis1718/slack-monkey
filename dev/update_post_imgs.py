@@ -41,18 +41,26 @@ from pymongo import MongoClient
 from lxml import html
 import requests
 import parse_post
-import random, time
+import random, time, sys
 
 uri = 'mongodb://beauty:beauty@ds049754.mongolab.com:49754/slack';
 
+print '> connecting to', uri, '...',
+sys.stdout.flush()
 mc = MongoClient(uri)
 db = mc['slack']
 co_lists = db['beauty.lists']
 co_posts = db['beauty.posts']
+print 'done'
 
 def get_page_tree(url):
-    page = requests.get(url)
-    tree = html.fromstring(page.text)
+    tree = None
+    try:
+        page = requests.get(url)
+        tree = html.fromstring(page.text)
+    except:
+        print '[ERROR] Fail to fetch', url
+        pass
     return tree
 
 def save_post_imgs_to_mongo(co, img_items):
@@ -101,18 +109,25 @@ if __name__ == '__main__':
     total_posts = co_lists.count()
     processed = 0
 
+
     while True:
+
+        ignored = ''
+        status = ''
+        img_items = []
 
         # find an unfetched post
         mdoc = get_one_unfeched_post(co_lists)
 
         if not mdoc:
+            print '> All posts are up-to-date.'
             break
 
-        ignored = ''
-        img_items = []
+        print '>', mdoc['post_id'], mdoc['full_title'], '...' ,
+        sys.stdout.flush()
+
         if mdoc['tag'] not in VALID_TYPE:
-            ignored = '(ignore)'
+            status = '(ignore)'
             # ignore this post and marked as fetched
             query = { 'post_id': mdoc['post_id'] }
             update = { '$set': { 'fetched': False, 'ignore': True } }
@@ -122,6 +137,11 @@ if __name__ == '__main__':
             # https://www.ptt.cc/bbs/Beauty/M.1446701090.A.658.html
             entry = mdoc['url']
             tree = get_page_tree(entry)
+
+            if tree is None:
+                status = '(failed)'
+                print status
+                continue
 
             parsed_data = get_parsed_data(tree)
 
@@ -147,9 +167,11 @@ if __name__ == '__main__':
             if len(img_items) > 0:
                 save_post_imgs_to_mongo(co_posts, img_items)
 
-        processed += 1
-        print '> (', len(img_items) ,')', processed, '/', total_posts, mdoc['post_id'], mdoc['full_title'], ignored
+            status = '(%d photos)' % len(img_items)
 
-        wait = random.randrange(1,6)
-        print '> wait for', wait, 'secs'
-        time.sleep(wait)        
+        processed += 1
+        print status
+
+        wait = random.randrange(100,2000)
+        print '> wait for', wait, 'ms'
+        time.sleep(wait/1000.0)
