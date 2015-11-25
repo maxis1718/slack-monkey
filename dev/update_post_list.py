@@ -14,6 +14,7 @@ import parse_list
 import re
 import time
 import random
+import sys
 
 uri = 'mongodb://beauty:beauty@ds049754.mongolab.com:49754/slack';
 
@@ -40,14 +41,16 @@ def save_post_to_mongo(co, post):
     mdoc = co.find_one(query)
     if mdoc is None:
         # not existed, insert
-        co.insert_one(post)
+        res = co.insert_one(post)
+        print '(inserted)'
     else:
         # merge current one
         replacement = mdoc.copy()
         replacement.update(post)
         # update record
-        co.replace_one(query, replacement)
-    return result
+        res = co.replace_one(query, replacement)
+        print '(updated)'
+    return res
 
 def get_current_list_id(entry, prev_url):
     if entry.endswith('index.html'):
@@ -94,7 +97,8 @@ if __name__ == '__main__':
         # update to beauty.lists
         # query by post_id and update entire post
         for i, post in enumerate(post_lists):
-            print '  > save', post['title'], '(', i+1, '/', len(post_lists), ')'
+            print '  > save', post['title'], '(', i+1, '/', len(post_lists), ')', '...',
+            sys.stdout.flush()
             save_post_to_mongo(co_list, post)
 
         wait = random.randrange(1,5)
