@@ -44,11 +44,12 @@ def save_post_to_mongo(co, post):
         res = co.insert_one(post)
         print '(inserted)'
     else:
-        # merge current one
-        replacement = mdoc.copy()
-        replacement.update(post)
-        # update record
-        res = co.replace_one(query, replacement)
+        # update push and mark fields
+        update = {}
+        for key in ['push', 'mark']:
+            if key in post:
+                update[key] = post[key]
+        res = co.update_one(query, {'$set': update })
         print '(updated)'
     return res
 
