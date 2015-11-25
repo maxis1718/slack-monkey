@@ -5,6 +5,7 @@
 # parse list and get posts
 # request posts and save to mongo
 # explore 上頁
+# db.beauty.lists.createIndex({ push: -1 })
 
 from pymongo import MongoClient
 from lxml import html
@@ -13,6 +14,7 @@ import parse_list
 import re
 import time
 import random
+import sys
 
 uri = 'mongodb://beauty:beauty@ds049754.mongolab.com:49754/slack';
 
@@ -36,9 +38,20 @@ def add_post_id(post):
 
 def save_post_to_mongo(co, post):
     query = { 'post_id': post['post_id'] }
-    replacement = post
-    result = co.replace_one(query, replacement, upsert=True)
-    return result
+    mdoc = co.find_one(query)
+    if mdoc is None:
+        # not existed, insert
+        res = co.insert_one(post)
+        print '(inserted)'
+    else:
+        # update push and mark fields
+        update = {}
+        for key in ['push', 'mark']:
+            if key in post:
+                update[key] = post[key]
+        res = co.update_one(query, {'$set': update })
+        print '(updated)'
+    return res
 
 def get_current_list_id(entry, prev_url):
     if entry.endswith('index.html'):
@@ -57,8 +70,8 @@ def get_full_entry_url(entry, list_id):
 
 if __name__ == '__main__':
 
-    entry = 'https://www.ptt.cc/bbs/Beauty/index1485.html'
-    total = 50
+    entry = 'https://www.ptt.cc/bbs/Beauty/index1650.html'
+    total = 1
 
     processed = 0
     while processed < total:
@@ -85,10 +98,11 @@ if __name__ == '__main__':
         # update to beauty.lists
         # query by post_id and update entire post
         for i, post in enumerate(post_lists):
-            print '  > save', post['title'], '(', i+1, '/', len(post_lists), ')'
+            print '  > save', post['title'], '(', i+1, '/', len(post_lists), ')', '...',
+            sys.stdout.flush()
             save_post_to_mongo(co_list, post)
 
-        wait = random.randrange(1,6)
+        wait = random.randrange(1,5)
         print '> wait for', wait, 'secs'
         time.sleep(wait)
 
