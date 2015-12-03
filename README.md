@@ -27,5 +27,7 @@ node app
 e.g., [trigger term] +捷運 #正妹
 ```
 
+## Release notes
 
+- 2015/12/03 Lorem Ipsum
 
