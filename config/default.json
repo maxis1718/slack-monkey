@@ -9,5 +9,41 @@
         ":sweat:",
         ":sweat_smile:",
         ":persevere:"
-    ]
+    ],
+    "types": {
+        "premium": [
+        {
+            "term": ["alan"],
+            "conditions": 
+            {
+                "push": 75
+            },
+            "db": true
+        }],
+        "custom": [
+        {
+            "term": ["布萊恩"],
+            "data": ["twjp"],
+            "db": false
+        },
+        {
+            "term": ["kelvin"],
+            "data": ["dale"],
+            "db": false
+        }],
+        "other": [
+        {
+            "term": ["clear", "洗版"],
+            "lipsum": {
+                "start": "yes",
+                "what": "paras",
+                "amount": "random"
+            }
+        },
+        {
+            "term": ["clark"],
+            "codes": ["mongo"]
+        }
+        ]
+    }
 }
