@@ -1,0 +1,13 @@
+{
+    "mongodb": {
+        "uri": "mongodb://beauty:beauty@ds049754.mongolab.com:49754/slack"
+    },
+    "emo": [
+        ":cold_sweat:",
+        ":weary:",
+        ":disappointed:",
+        ":sweat:",
+        ":sweat_smile:",
+        ":persevere:"
+    ]
+}
