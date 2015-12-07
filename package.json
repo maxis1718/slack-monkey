@@ -28,5 +28,9 @@
     "lint",
     "validate",
     "test"
-  ]
+  ],
+  "engines": {
+    "npm": "2.14.4",
+    "node": "4.1.1"
+  }
 }
