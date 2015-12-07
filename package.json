@@ -12,8 +12,11 @@
     "request": "^2.58.0"
   },
   "dependencies": {
+    "bluebird": "^3.0.6",
     "body-parser": "^1.13.1",
+    "config": "^1.17.1",
     "express": "^4.12.4",
+    "lodash": "^3.10.1",
     "mongodb": "^2.0.47",
     "node-lipsum": "^1.0.1",
     "request": "^2.58.0"
