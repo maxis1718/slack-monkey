@@ -8,12 +8,14 @@ var port = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/', function (req, res) { res.status(200).send('Hello world!') });
+app.get('/', function (req, res) {
+	res.status(200).send('Hello world!');
+});
 
 app.post('/beauty', beauty);
 app.post('/beautyPromisify', beautyPromisify);
 
-app.use(function (err, req, res, next) {
+app.use(function (err, req, res) {
   console.error(err.stack);
   res.status(400).send(err.message);
 });
