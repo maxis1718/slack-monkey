@@ -1,14 +1,15 @@
 {
-  "name": "slackbots",
+  "name": "slack-monkey",
   "version": "1.0.0",
-  "description": "",
+  "description": "a slack bot for beauty search",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Maxis Kao",
   "license": "ISC",
   "devDependencies": {
+    "mocha": "^2.3.4",
     "request": "^2.58.0"
   },
   "dependencies": {

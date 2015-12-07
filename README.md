@@ -1,18 +1,19 @@
 # Slack Monkey
 
-> 最專業的程序猿鼓勵師
+> 最專業的程序猿鼓勵師: 逗獅子, 哄碼農, 溜碼畜
+
+[![npm version](https://badge.fury.io/js/slack-monkey.svg)](https://badge.fury.io/js/slack-monkey)
 
 ## Quick start
 
 ```
-npm install
-node app
+npm install slack-monkey
+nodemon
 ```
 
 ## Heroku
 
-- account: `yahoo.tw.hackers@gmail.com`
-- bot: http://slack-monkey.herokuapp.com/beauty
+- http://slack-monkey.herokuapp.com
 
 ## Slack
 
@@ -26,6 +27,11 @@ node app
 
 e.g., [trigger term] +捷運 #正妹
 ```
+
+## Goal
+
+讓程序猿、攻城獅持續產出高質量的代碼
+
 
 ## Release notes
 
