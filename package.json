@@ -14,6 +14,8 @@
   "dependencies": {
     "body-parser": "^1.13.1",
     "express": "^4.12.4",
+    "mongodb": "^2.0.47",
+    "node-lipsum": "^1.0.1",
     "request": "^2.58.0"
   }
 }
