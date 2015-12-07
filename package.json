@@ -4,14 +4,17 @@
   "description": "a slack bot for beauty search",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha tests/* --reporter spec",
+    "lint": "jshint .",
+    "validate": "npm ls"
   },
   "author": "Maxis Kao",
   "license": "ISC",
   "devDependencies": {
     "mocha": "^2.3.4",
-    "request": "^2.58.0"
+    "precommit-hook": "^3.0.0"
   },
+  "repository": "maxis1718/slack-monkey",
   "dependencies": {
     "bluebird": "^3.0.6",
     "body-parser": "^1.13.1",
@@ -19,7 +22,11 @@
     "express": "^4.12.4",
     "lodash": "^3.10.1",
     "mongodb": "^2.0.47",
-    "node-lipsum": "^1.0.1",
-    "request": "^2.58.0"
-  }
+    "node-lipsum": "^1.0.1"
+  },
+  "pre-commit": [
+    "lint",
+    "validate",
+    "test"
+  ]
 }
