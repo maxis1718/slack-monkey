@@ -1,8 +1,8 @@
 # Slack Monkey
 
-> 最專業的程序猿鼓勵師: 逗獅子, 哄碼農, 溜碼畜
+> 最專業的程序猿鼓勵師
 
-[![npm version](https://badge.fury.io/js/slack-monkey.svg)](https://badge.fury.io/js/slack-monkey)
+[![npm version](https://badge.fury.io/js/slack-monkey.svg)](https://badge.fury.io/js/slack-monkey) [![Build Status](https://travis-ci.org/maxis1718/slack-monkey.svg)](https://travis-ci.org/maxis1718/slack-monkey)
 
 ## Quick start
 
@@ -30,10 +30,11 @@ e.g., [trigger term] +捷運 #正妹
 
 ## Goal
 
-讓程序猿、攻城獅持續產出高質量的代碼
+逗獅子, 哄碼農, 溜碼畜，讓程序猿、攻城獅持續產出高質量的代碼
 
 
 ## Release notes
 
+- 2015/12/07 Travis CI
 - 2015/12/03 Lorem Ipsum
 
