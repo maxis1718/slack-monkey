@@ -2,7 +2,10 @@
 
 > 最專業的程序猿鼓勵師
 
-[![npm version](https://badge.fury.io/js/slack-monkey.svg)](https://badge.fury.io/js/slack-monkey) [![Build Status](https://travis-ci.org/maxis1718/slack-monkey.svg)](https://travis-ci.org/maxis1718/slack-monkey)
+[![npm version][npm-version-badge]][npm-version-link]
+[![Build Status][build-status-badge]](build-status-link)
+[![dependency][dependency-badge]](dependency-link)
+[![coverage][coveralls-badge]](coveralls-link)
 
 ## Quick start
 
@@ -38,3 +41,15 @@ e.g., [trigger term] +捷運 #正妹
 - 2015/12/07 Travis CI
 - 2015/12/03 Lorem Ipsum
 
+
+[npm-version-badge]: https://badge.fury.io/js/slack-monkey.svg
+[npm-version-link]: https://badge.fury.io/js/slack-monkey
+
+[build-status-badge]: https://travis-ci.org/maxis1718/slack-monkey.svg
+[build-status-link]: https://travis-ci.org/maxis1718/slack-monkey
+
+[dependency-badge]: https://david-dm.org/maxis1718/slack-monkey.svg
+[dependency-link]: https://david-dm.org/maxis1718/slack-monkey
+
+[coveralls-badge]: https://coveralls.io/repos/maxis1718/slack-monkey/badge.svg?branch=master&service=github
+[coveralls-link]: https://coveralls.io/github/maxis1718/slack-monkey?branch=master
