@@ -3,9 +3,9 @@
 > 最專業的程序猿鼓勵師
 
 [![npm version][npm-version-badge]][npm-version-link]
-[![Build Status][build-status-badge]](build-status-link)
-[![dependency][dependency-badge]](dependency-link)
-[![coverage][coveralls-badge]](coveralls-link)
+[![Build Status][build-status-badge]][build-status-link]
+[![dependency][dependency-badge]][dependency-link]
+[![coverage][coveralls-badge]][coveralls-link]
 
 ## Quick start
 

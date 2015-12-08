@@ -15,6 +15,7 @@ import re
 import time
 import random
 import sys
+import getopt
 
 uri = 'mongodb://beauty:beauty@ds049754.mongolab.com:49754/slack';
 
@@ -68,10 +69,30 @@ def get_full_entry_url(entry, list_id):
     return entry_url
 
 
+def usage():
+    print '''Usage:
+    python %s [options]
+        -u, --url: entry url (https://www.ptt.cc/bbs/Beauty/index1661.html)
+        -n, --number: total number of pages
+    '''
+    exit()
+
 if __name__ == '__main__':
 
-    entry = 'https://www.ptt.cc/bbs/Beauty/index1650.html'
-    total = 1
+    entry = 'https://www.ptt.cc/bbs/Beauty/index.html'
+    total = 10
+
+    try:
+        opts, args = getopt.getopt(sys.argv[1:], "hu:n:", ["help","url=","number="])
+        for opt, arg in opts:
+            if opt == "-u" or opt == "--url":
+                entry = arg
+            elif opt == "-n" or opt == "--number":
+                total = int(arg)
+            elif opt == "-h" or opt == "--help":
+                usage()
+    except getopt.GetoptError as err:
+        usage()
 
     processed = 0
     while processed < total:
