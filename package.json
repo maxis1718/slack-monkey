@@ -4,13 +4,16 @@
   "description": "a slack bot for beauty search",
   "main": "app.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha tests/* --reporter spec",
+    "test": "./node_modules/.bin/istanbul test ./node_modules/.bin/_mocha -- -R spec",
+    "test-travis": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec ./test/*",
     "lint": "jshint .",
     "validate": "npm ls"
   },
   "author": "Maxis Kao",
   "license": "ISC",
   "devDependencies": {
+    "coveralls": "^2.11.4",
+    "istanbul": "^0.4.1",
     "mocha": "^2.3.4",
     "precommit-hook": "^3.0.0"
   },
