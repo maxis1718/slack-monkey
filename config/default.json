@@ -10,6 +10,63 @@
         ":sweat_smile:",
         ":persevere:"
     ],
+    "premiums": [
+        {
+            "terms": ["showmethemoney", "showmethepower"],
+            "conditions": {
+                "push": 100
+            },
+            "search": true
+        },
+        {
+            "terms": ["alan"],
+            "conditions": {
+                "push": 75
+            },
+            "search": true
+        },
+        {
+            "terms": ["conrad"],
+            "conditions": {
+                "keyword": "PTT"
+            },
+            "search": true
+        }
+    ],
+    "customs": [
+        {
+            "terms": ["布萊恩", "bryan"],
+            "data": [
+                {
+                    "text": "台日友好",
+                    "img": "http://imgur.com/uSwkfT9.jpg"
+                }
+            ],
+            "search": false
+        },
+        {
+            "terms": ["kelvin"],
+            "data": [
+                {
+                    "text": "[正妹] 傳說中 Yahoo TW 唯一的 UX",
+                    "img":"http://i.imgur.com/CdADHcC.jpg"
+                },
+                {
+                    "text": "[正妹] 傳說中 Yahoo TW 唯一的 UX",
+                    "img": "http://i.imgur.com/XmZeNB5.jpg"
+                },
+                {
+                    "text": "[正妹] 傳說中 Yahoo TW 唯一的 UX",
+                    "img": "http://i.imgur.com/QvK0tUr.jpg"
+                },
+                {
+                    "text": "[正妹] 傳說中 Yahoo TW 唯一的 UX",
+                    "img": "http://i.imgur.com/4gh7n9h.jpg"
+                }
+            ],
+            "search": false
+        }
+    ],
     "types": {
         "premium": [
         {
