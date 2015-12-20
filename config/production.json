@@ -1,6 +1,6 @@
 {
     "mongodb": {
-        "uri": "mongodb://beauty:beauty@ds049754.mongolab.com:49754/slack",
+        "uri": "mongodb://localhost:27017/slack",
         "update": true
     },
     "querylog": true
