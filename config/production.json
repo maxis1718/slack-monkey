@@ -1,0 +1,7 @@
+{
+    "mongodb": {
+        "uri": "mongodb://beauty:beauty@ds049754.mongolab.com:49754/slack",
+        "update": true
+    },
+    "querylog": true
+}

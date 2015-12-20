@@ -1,7 +1,14 @@
 {
     "mongodb": {
-        "uri": "mongodb://beauty:beauty@ds049754.mongolab.com:49754/slack"
+        "uri": "mongodb://beauty:beauty@ds049754.mongolab.com:49754/slack",
+        "update": false,
+        "collections": {
+            "lists": "beauty.lists",
+            "posts": "beauty.posts",
+            "query": "beauty.query"
+        }
     },
+    "querylog": false,
     "emo": [
         ":cold_sweat:",
         ":weary:",

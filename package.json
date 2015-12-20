@@ -4,6 +4,8 @@
   "description": "a slack bot for beauty search",
   "main": "app.js",
   "scripts": {
+    "start": "NODE_ENV=production node app.js",
+    "dev": "NODE_ENV=development nodemon",
     "test": "./node_modules/.bin/istanbul test ./node_modules/.bin/_mocha -- -R spec",
     "test-travis": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec ./test/*",
     "lint": "jshint .",
@@ -23,6 +25,8 @@
     "bluebird": "^3.0.6",
     "body-parser": "^1.13.1",
     "config": "^1.17.1",
+    "debug": "^2.2.0",
+    "exectimer": "^2.0.0",
     "express": "^4.12.4",
     "lodash": "^3.10.1",
     "mongodb": "^2.0.47",

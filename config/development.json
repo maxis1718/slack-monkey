@@ -1,0 +1,7 @@
+{
+    "mongodb": {
+        "uri": "mongodb://localhost:27017/slack",
+        "update": false
+    },
+    "querylog": false
+}
