@@ -8,7 +8,7 @@
     "dev": "NODE_ENV=development nodemon",
     "test": "./node_modules/.bin/istanbul test ./node_modules/.bin/_mocha -- -R spec",
     "test-travis": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec ./test/*",
-    "lint": "jshint .",
+    "lint": "./node_modules/.bin/jshint .",
     "validate": "npm ls"
   },
   "author": "Maxis Kao",
@@ -28,9 +28,11 @@
     "debug": "^2.2.0",
     "exectimer": "^2.0.0",
     "express": "^4.12.4",
+    "jshint": "^2.8.0",
     "lodash": "^3.10.1",
     "mongodb": "^2.0.47",
-    "node-lipsum": "^1.0.1"
+    "node-lipsum": "^1.0.1",
+    "precommit-hook": "^3.0.0"
   },
   "pre-commit": [
     "lint",
