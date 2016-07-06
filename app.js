@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var beauty = require('./lib/beauty');
-var beautyPromisify = require('./lib/beauty-promise').monkey;
+//var beautyPromisify = require('./lib/beauty-promise').monkey;
 
 var app = express();
 var port = process.env.PORT || 3000;
@@ -13,7 +13,7 @@ app.get('/', function (req, res) {
 });
 
 app.post('/beauty', beauty);
-app.post('/beautyPromisify', beautyPromisify);
+//app.post('/beautyPromisify', beautyPromisify);
 
 app.use(function (err, req, res) {
   console.error(err.stack);

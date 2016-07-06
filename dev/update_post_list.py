@@ -17,7 +17,8 @@ import random
 import sys
 import getopt
 
-uri = 'mongodb://beauty:beauty@ds049754.mongolab.com:49754/slack';
+uri = 'mongodb://localhost:27017/slack'
+#uri = 'mongodb://beauty:beauty@ds049754.mongolab.com:49754/slack'
 
 mc = MongoClient(uri)
 db = mc['slack']
@@ -80,7 +81,7 @@ def usage():
 if __name__ == '__main__':
 
     entry = 'https://www.ptt.cc/bbs/Beauty/index.html'
-    total = 10
+    total = 30
 
     try:
         opts, args = getopt.getopt(sys.argv[1:], "hu:n:", ["help","url=","number="])

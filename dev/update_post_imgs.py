@@ -43,7 +43,8 @@ import requests
 import parse_post
 import random, time, sys
 
-uri = 'mongodb://beauty:beauty@ds049754.mongolab.com:49754/slack';
+uri = 'mongodb://localhost:27017/slack'
+#uri = 'mongodb://beauty:beauty@ds049754.mongolab.com:49754/slack'
 
 print '> connecting to', uri, '...',
 sys.stdout.flush()
